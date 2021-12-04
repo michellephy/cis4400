@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: dim_channel
+    columns: 
+      - name: channel_type
+        tests:
+          - accepted_values:
+              values:
+                - PHONE
+                - ONLINE
+                - MOBILE
+                - OTHER
+  - name: dim_date
+    columns: 
+      - name: date_dim_id
+        tests:
+          - not_null
+      - name: date0
+        tests:
+          - not_null
+  - name: dim_311_complaint
+    columns: 
+      - name: complaint_type
+        tests:
+          - not_null
+      - name: complaint_description
+        tests:
+          - not_null
+  - name: dim_location
+    columns: 
+      - name: borough
+        tests:
+          - accepted_values:
+             values:
+              - Queens
+              - Brooklyn
+              - Manhattan
+              - Staten Island
+              - Bronx
+      - name: zipcode
+        tests:
+          - not_null
+
